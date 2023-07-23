@@ -1,0 +1,88 @@
+<section>
+    <form fxLayout="column" fxLayoutAlign="center center"
+    #f = "ngForm" (ngSubmit)="onSubmit(f)">
+    <mat-form-field>
+        <input 
+          type="email" 
+          matInput 
+          placeholder="Vaš email" 
+          ngModel 
+          name="email"
+          required
+          email
+          #emailInput="ngModel">
+          <mat-error *ngIf="emailInput.hasError('required')">Polje ne sme biti prazno.</mat-error>
+          <mat-error *ngIf="!emailInput.hasError('required')">Molim Vas unesite odgovarajući email format.</mat-error>
+  
+      </mat-form-field>
+
+
+        <mat-form-field hintLabel="Molim Vas unesite minimum 8 karaktera.">
+            <input 
+            type="password" 
+            matInput
+            placeholder="Vaša šifra" 
+            ngModel="password" 
+            name="password" 
+            autocomplete="on"
+            required minlength="8" 
+            #passInput = "ngModel">
+            <mat-hint align="end"> {{passInput.value?.length}} / 8 </mat-hint>
+        </mat-form-field>
+
+        <mat-form-field>
+            <input 
+            type="password"
+            matInput
+            placeholder="Ponovite šifru"
+            ngModel
+            required
+            name="repeatPassword"
+            #repeatPassword ="ngModel">
+        </mat-form-field>
+
+        
+
+        <mat-form-field>
+            <input 
+                matInput
+                placeholder="Vaš datum rođenja." 
+                ngModel 
+                name="birthDate"
+                [matDatepicker]="picker" 
+                required>
+                <mat-datepicker-toggle matIconSuffix [for]="picker">
+                </mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+                <mat-hint>MM/DD/YYYY</mat-hint>
+        </mat-form-field>
+
+        <mat-checkbox color="primary" ngModel name="tos" required> Prihvatam uslove koriscenja.</mat-checkbox>
+
+        <button 
+        type="submit" 
+        mat-raised-button 
+        color="primary"
+        [disabled]="f.invalid">
+        Registruj se!
+    </button>
+
+
+    <mat-label *ngIf="errorExists"> {{ errorText }} </mat-label>
+    
+    
+    <button 
+        class="login" 
+        type="button" 
+        mat-raised-button 
+        color="primary" 
+        routerLink="/login" >
+            Prijavi se?
+    </button>
+
+    <!-- <a routerLink="/login">Uloguj se?</a> -->
+        
+    </form>
+
+    
+</section>

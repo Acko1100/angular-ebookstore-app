@@ -1,0 +1,14 @@
+.mat-toolbar{
+    height: 80px;
+}
+a{
+    color: #fff;
+    text-decoration: none;
+}
+a:hover, a:active{
+    color: rgb(100, 147, 147);
+
+}
+.image_logo{
+    padding-top: 12px;
+}
