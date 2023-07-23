@@ -13,7 +13,7 @@ import { MaterialModule } from './material.module';
 import { RoutingModule } from './app-routing.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule } from '@angular/forms';
-import { UserService } from './auth/user.service';
+import { UserService } from './services/user.service';
 import { ProfileComponent } from './auth/profile/profile.component';
 
 @NgModule({
