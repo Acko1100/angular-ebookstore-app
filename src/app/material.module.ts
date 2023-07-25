@@ -7,7 +7,11 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatCardModule} from '@angular/material/card';
-import { MatNativeDateModule } from "@angular/material/core";
+import {MatNativeDateModule} from "@angular/material/core";
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatBadgeModule} from '@angular/material/badge';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatTableModule} from '@angular/material/table';
 
 
 
@@ -23,6 +27,10 @@ import { MatNativeDateModule } from "@angular/material/core";
         MatNativeDateModule,
         MatToolbarModule,
         MatCardModule,
+        MatSnackBarModule,
+        MatBadgeModule,
+        MatMenuModule,
+        MatTableModule
         
     ],
     exports: 
@@ -35,7 +43,11 @@ import { MatNativeDateModule } from "@angular/material/core";
         MatDatepickerModule,
         MatNativeDateModule,
         MatToolbarModule,
-        MatCardModule
+        MatCardModule,
+        MatSnackBarModule,
+        MatBadgeModule,
+        MatMenuModule,
+        MatTableModule
 
     ]
 
