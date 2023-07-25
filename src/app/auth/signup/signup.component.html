@@ -20,20 +20,23 @@
         <mat-form-field hintLabel="Molim Vas unesite minimum 8 karaktera.">
             <input 
             type="password" 
-            matInput
+            matInput [type]="hide ? 'password' : 'text'"
             placeholder="Vaša šifra" 
             ngModel="password" 
             name="password" 
             autocomplete="on"
             required minlength="8" 
             #passInput = "ngModel">
+                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+      <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+    </button>
             <mat-hint align="end"> {{passInput.value?.length}} / 8 </mat-hint>
         </mat-form-field>
 
         <mat-form-field>
             <input 
                 type="password"
-                matInput
+                matInput 
                 placeholder="Ponovite šifru"
                 ngModel   
                 required 
