@@ -32,14 +32,26 @@
 
         <mat-form-field>
             <input 
-            type="password"
-            matInput
-            placeholder="Ponovite šifru"
-            ngModel
-            required
-            name="repeatPassword"
-            #repeatPassword ="ngModel">
+                type="password"
+                matInput
+                placeholder="Ponovite šifru"
+                ngModel   
+                required 
+                name="repeatPassword"
+                #repeatPassword="ngModel"
+                (keyup)="validateRepeatPassword(f)">
+            <mat-error *ngIf="repeatPassword.invalid && (repeatPassword.dirty || repeatPassword.touched)">
+                Šifre se ne poklapaju.
+            </mat-error>
         </mat-form-field>
+        <!-- name="repeatPassword - ovo je kljuc koji koristimo da pristupimo polju,
+            #repeatPassword="ngModel" - referenca ka ngModel direktivi koja nam omogucava da pravimo validacije,
+            (keyup) - dogadjaj koji se aktivira svaki put kada se pritisne dugme na tastaturi on poziva funkciju
+        "validateRepeatPassword(f)" koja proverava da li su unesene lozinke jednake zatim imamo 
+        mat-error element koji ce prikazati gresku ukoliko ona postoji, ngIf je direktiva koja ce prikazati dati element
+        jednino ako su ispunjeni zadati uslovi, i na kraju tekst koji ce se prikazati da obavesti korisnika. 
+         -->
+        
 
         
 
@@ -80,7 +92,7 @@
             Prijavi se?
     </button>
 
-    <!-- <a routerLink="/login">Uloguj se?</a> -->
+    
         
     </form>
 
