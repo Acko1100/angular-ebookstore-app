@@ -34,9 +34,9 @@
           </mat-form-field>
 
         <!-- Potvrda / submit forme -->
-        <button type="submit" mat-raised-button color="primary" [disabled]="f.invalid">Prijavi se</button>
+        <button type="submit" mat-raised-button color="primary" [disabled]="f.invalid">Prijavi se!</button>
 
-        <mat-label *ngIf="errorExists"> {{ errorText }} </mat-label>
+        <mat-label *ngIf="errorExists" class="error-message"> {{ errorText }} </mat-label>
         <button class="signup" type="button" mat-raised-button color="primary" routerLink="/signup" >
             Registruj se?
         </button>

@@ -15,6 +15,9 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule } from '@angular/forms';
 import { UserService } from './services/user.service';
 import { ProfileComponent } from './auth/profile/profile.component';
+import { BookFiltersComponent } from './book-list/book-filters/book-filters.component'
+import { BooksComponent } from './book-list/books/books.component';
+import { CartService } from './services/cart.service';
 
 @NgModule({
   declarations: [
@@ -25,7 +28,9 @@ import { ProfileComponent } from './auth/profile/profile.component';
     BookListComponent,
     BookDetailsComponent,
     ShoppingCartComponent,
-    ProfileComponent
+    ProfileComponent,
+    BookFiltersComponent,
+    BooksComponent
   ],
   imports: [
     BrowserModule,
@@ -35,7 +40,7 @@ import { ProfileComponent } from './auth/profile/profile.component';
     FlexLayoutModule,
     FormsModule
   ],
-  providers: [UserService],
+  providers: [UserService,CartService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -15,7 +15,7 @@
             </div>
             <div fxLayoutAlign="right" fxLayoutGap="15px">
                 <button mat-mini-fab color="primary" routerLink="/cart">
-                    <mat-icon> shopping_cart</mat-icon>
+                    <mat-icon [matBadge]="itemsQuantity" [matBadgeHidden]="!itemsQuantity" matBadgeColor="warn"> shopping_cart</mat-icon>
 
                 </button>
                 <button mat-mini-fab color="primary" routerLink="/profile">

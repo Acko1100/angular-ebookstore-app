@@ -12,6 +12,12 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatBadgeModule} from '@angular/material/badge';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatTableModule} from '@angular/material/table';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatExpansionModule} from '@angular/material/expansion';
+import {MatListModule} from '@angular/material/list';
+import {MatGridListModule} from '@angular/material/grid-list';
+
+
 
 
 
@@ -30,7 +36,11 @@ import {MatTableModule} from '@angular/material/table';
         MatSnackBarModule,
         MatBadgeModule,
         MatMenuModule,
-        MatTableModule
+        MatTableModule,
+        MatSidenavModule,
+        MatExpansionModule,
+        MatListModule,
+        MatGridListModule
         
     ],
     exports: 
@@ -47,7 +57,11 @@ import {MatTableModule} from '@angular/material/table';
         MatSnackBarModule,
         MatBadgeModule,
         MatMenuModule,
-        MatTableModule
+        MatTableModule,
+        MatSidenavModule,
+        MatExpansionModule,
+        MatListModule,
+        MatGridListModule
 
     ]
 

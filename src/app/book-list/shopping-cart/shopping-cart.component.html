@@ -32,13 +32,15 @@
         <ng-container matColumnDef="quantity">
             <th mat-header-cell *matHeaderCellDef>Kvantitet</th>
             <td mat-cell *matCellDef="let element">
-                <button mat-icon-button>
+            <div class="flex items-center">
+                <button mat-icon-button (click)="onRemoveQuantity(element)">
                     <mat-icon>remove</mat-icon>
                 </button>
                 <span>{{element.quantity}}</span>
-                <button mat-icon-button>
+                <button mat-icon-button (click)="onAddQuantity(element)">
                     <mat-icon>add</mat-icon>
                 </button>
+            </div>
             </td>
             <td mat-footer-cell *matFooterCellDef>
             </td>
@@ -58,12 +60,12 @@
 
         <ng-container matColumnDef="action">
             <th mat-header-cell *matHeaderCellDef>
-                <button mat-raised-button color="warn" class="float right">
+                <button mat-raised-button color="warn" class="float right" (click)="onClearCart()">
                     Isprazni korpu
                 </button>
             </th>
             <td mat-cell *matCellDef="let element">
-                <button mat-mini-fab color="warn" class="float right">
+                <button mat-mini-fab color="warn" class="float right" (click)="onRemoveFromCart(element)">
                     <mat-icon>close</mat-icon>
                 </button>
             </td>
@@ -85,7 +87,7 @@
     </table>
 </mat-card>
 
-<mat-card class="max-w-7x1 mx-auto" *ngIf="!cart.items.length">
+<mat-card class="max-w-7x1 px-5 py-5 mx-auto" *ngIf="!cart.items.length">
     <p>
         Vasa korpa je prazna.
         <button mat-raised-button routerLink="/book-list">Vrati se na kupovinu</button>
