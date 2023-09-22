@@ -31,7 +31,7 @@ export class SignupComponent {
 
   }
 
-  validateRepeatPassword(form: NgForm) { //definicija funkcije
+  validateRepeatPassword(form: NgForm) { 
     const password = form.value.password;
     const repeatPassword = form.value.repeatPassword; //iz forme se uzimaju vrednosti iz polja password i repeatPassword
 
@@ -40,8 +40,7 @@ export class SignupComponent {
       // ako su unese vrednosti jednake provere greske dobijaju vrednost null sto znaci da nema greske i da se sifre poklapaju
       form.controls['repeatPassword'].setErrors(null); 
     } else {
-      //ovaj deo se izvrsava u slucaju da se sifre ne poklapaju, na polje repeatPassword sa kljucem passwordMissmatch je postavljena greska i vrednost true, 
-      //sto oznacava da postoji greska i da se ponovljena lozinka ne podudara sa unesenom
+      //Greska ukoliko se sifre ne poklapaju
       form.controls['repeatPassword'].setErrors({ 'passwordMismatch': true });
     }
   }

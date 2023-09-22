@@ -1,12 +1,19 @@
 <mat-expansion-panel *ngIf="genres">
     <mat-expansion-panel-header>
-        <mat-panel-title>Zanrovi</mat-panel-title>
+      <mat-panel-title>Zanrovi</mat-panel-title>
     </mat-expansion-panel-header>
+    <!-- [multiple] = false -> moze da se selektuje samo jedan element -->
     <mat-selection-list [multiple]="false">
-        <mat-list-option *ngFor="let genre of genres" [value]="genre">
-            <button (click)="onShowGenre(genre)">
-                {{genre}}
-            </button> 
-        </mat-list-option>
+      <mat-list-option (click)="onShowGenre('Svi zanrovi')">
+        <button>
+          Svi zanrovi
+        </button>
+      </mat-list-option>
+      <!-- Iteracija kroz zanrove -->
+      <mat-list-option *ngFor="let genre of genres" [value]="genre">
+        <button (click)="onShowGenre(genre)">
+          {{ genre }}
+        </button>
+      </mat-list-option>
     </mat-selection-list>
-</mat-expansion-panel>
+  </mat-expansion-panel>

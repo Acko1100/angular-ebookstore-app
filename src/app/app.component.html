@@ -10,22 +10,28 @@
             <div fxFlex fxLayoutAlign="center" fxLayoutGap="50px" fxHide.xs>
                 <a routerLink="/"> Početna strana </a>
                 <a routerLink="/book-list"> Prodavnica </a>
-                <a routerLink="/login"> Prijavi se </a>   
+                <a routerLink="/login"> Prijavi se </a>
                 
             </div>
-            <div fxLayoutAlign="right" fxLayoutGap="15px">
-                <button mat-mini-fab color="primary" routerLink="/cart">
-                    <mat-icon [matBadge]="itemsQuantity" [matBadgeHidden]="!itemsQuantity" matBadgeColor="warn"> shopping_cart</mat-icon>
-
-                </button>
-                <button mat-mini-fab color="primary" routerLink="/profile">
-                    <mat-icon>account_circle</mat-icon>
-
-                </button>
+            <div class="profile-wrapper">
+                <div class="icon-wrapper">
+                    <button mat-mini-fab color="primary" routerLink="/cart">
+                        <!-- Azurira ikonicu za svaku stavku dodatu u korpu -->
+                        <mat-icon [matBadge]="itemsQuantity" [matBadgeHidden]="!itemsQuantity" matBadgeColor="warn"> shopping_cart</mat-icon>
+                    </button>
+                    <button mat-mini-fab color="primary" routerLink="/profile">
+                        <mat-icon>account_circle</mat-icon>
+                    </button>
+                </div>
             </div>
 
     </mat-toolbar>
 
+    
+
 
  <router-outlet></router-outlet>
+
+
+
 

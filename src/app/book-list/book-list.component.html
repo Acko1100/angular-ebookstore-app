@@ -1,35 +1,24 @@
 <mat-drawer-container [autosize]="true">
-
     <mat-drawer mode="side" opened class="p-6">
-        <app-book-filters (showGenre)="onShowGenre($event)"> </app-book-filters> 
-
+      <app-book-filters (showGenre)="onShowGenre($event)"> </app-book-filters>
     </mat-drawer>
     <mat-drawer-content class="p-6">
-        <app-book-details (columnsCountChange)="onColumnsCountChange($event)"></app-book-details>
-        <mat-grid-list gutterSize="16px" [cols]="columns"[rowHeight]="rowHeight">
-            <mat-grid-tile>
-                <app-books (addToCart)="onAddToCart($event)" ></app-books>
-            </mat-grid-tile> 
-            <mat-grid-tile>
-                <app-books (addToCart)="onAddToCart($event)" ></app-books>
-            </mat-grid-tile> 
-            <mat-grid-tile>
-                <app-books (addToCart)="onAddToCart($event)" ></app-books>
-            </mat-grid-tile> 
-            <mat-grid-tile>
-                <app-books (addToCart)="onAddToCart($event)" ></app-books>
-            </mat-grid-tile> 
-            <mat-grid-tile>
-                <app-books (addToCart)="onAddToCart($event)"></app-books>
-            </mat-grid-tile> 
-            <mat-grid-tile>
-                <app-books (addToCart)="onAddToCart($event)"></app-books>
-            </mat-grid-tile> 
-            <mat-grid-tile>
-                <app-books (addToCart)="onAddToCart($event)"></app-books>
-            </mat-grid-tile> 
-        </mat-grid-list>
+      <app-book-details
+        (columnsCountChange)="onColumnsCountChange($event)"
+        (sortUpdated)="onSortUpdated($event)"
+        (itemsUpdated)="onItemsUpdated($event)"
+      ></app-book-details>
+      <!-- Razmak izmedju celija i visina reda -->
+      <mat-grid-list gutterSize="16px" [cols]="columns" [rowHeight]="rowHeight">
+        <!--Filtriranje po zanru i prikaz odredjenog broja knjiga-->
+        <mat-grid-tile *ngFor="let book of filteredBooks.slice(0, itemsShowCount)">
+          <app-books [book]="book" (addToCart)="onAddToCart($event)"></app-books>
+        </mat-grid-tile>
+      </mat-grid-list>
     </mat-drawer-content>
+  </mat-drawer-container>
+  
+  
+  
 
-</mat-drawer-container>
-
+  

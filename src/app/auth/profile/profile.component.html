@@ -1,1 +1,8 @@
-<p>profile works!</p>
+<!-- Prikazane informacije o korisniku -->
+<div class="container" *ngIf="currentUser">
+    <h2>Informacije o korisniku:</h2>
+    <p><strong>Email adresa:</strong> {{ currentUser.email }}</p>
+    <p><strong>Datum registracije:</strong> {{ currentUser.date | date }}</p>
+    <button (click)="logout()">Logout</button>
+  </div>
+  

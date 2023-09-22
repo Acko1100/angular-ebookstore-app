@@ -1,25 +1,24 @@
-<mat-card class="text-center p-20 m-20" >
+<!-- Prikaz detalja knjige (slika, zanr, naslov, dugme koje vodi na detaljniji opis, cena) i metoda za dodavanje knjige u korpu -->
+<mat-card class="text-center p-20 m-20">
     <div>
-        <img class="mx-auto h-[100px]" src="https://www.laguna.rs/_img/korice/4683/srpske_zemlje_pre_nemanjica_od_7_do_10_veka-marko_aleksic_v.jpg" alt="">
+      <img class="mx-auto h-[100px]" [src]="book?.image" alt="">
     </div>
     <div class="w-full">
-        <div>
-            <h5>Istorija</h5>
-            <p class="truncate hover:whitespace-normal">Srpske zemlje pre Nemanjica</p>
-            <button class="mb-6" mat-raised-button>
-                <a href="https://www.laguna.rs/n4683_knjiga_srpske_zemlje_pre_nemanjica_od_7_do_10_veka_laguna.html" target="_blank">Vise o knjizi...</a>
-            </button>
-        </div>
-        <div class="flex justify-between">
-            <span class="text-red-400">{{'1200' | currency :'RSD'}}</span>
-            <button class="mb-6" (click)="onAddToCart()">
-                <mat-icon>shopping_cart</mat-icon>
-            </button>
-        </div>
+      <div>
+        <h5>{{ book?.genre }}</h5>
+        <p>{{ book?.title }}</p>
+        <button class="mb-6" mat-raised-button>
+          <a [href]="book?.description" target="_blank">Vise o knjizi...</a>
+        </button>
+      </div>
+      <div class="flex justify-between">
+        <span class="text-red-400">{{ book?.price | currency :'RSD'}}</span>
+        <button class="mb-6" (click)="onAddToCart()">
+          <mat-icon>shopping_cart</mat-icon>
+        </button>
+      </div>
     </div>
-</mat-card>
+  </mat-card>
 
-
-<!-- class="truncate hover:whitespace-normal -->
 
 

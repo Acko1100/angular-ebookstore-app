@@ -9,8 +9,8 @@ export class BookFiltersComponent implements OnInit {
   
   @Output() showGenre = new EventEmitter <string> ();
 
-
-  genres = ['autobiografija','akcija', 'horor', 'naucna fantasktika'];
+  //Skup svih zanrova
+  genres = ['Autobiografija','Filozofija', 'Horor', 'Drama','Ljubavne'];
 
 
 
@@ -18,6 +18,7 @@ export class BookFiltersComponent implements OnInit {
 
   ngOnInit(){}
 
+  //Kada se izabere zanr metod emituje showGenre sa odabranim zanrom
   onShowGenre ( genre: string) : void {
     this.showGenre.emit(genre);
   }

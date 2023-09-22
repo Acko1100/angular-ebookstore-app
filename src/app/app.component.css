@@ -12,3 +12,35 @@ a:hover, a:active{
 .cardMenu{
     text-decoration: solid;
 }
+
+.profile-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 15px; 
+    margin-top: 10px
+}
+
+
+.icon-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 5px;
+}
+
+
+.icon-wrapper button {
+    margin-right: 20px; 
+}
+
+
+
+
+
+
+
+
+
+
+

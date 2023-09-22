@@ -12,26 +12,23 @@ export interface User {
 @Injectable()
 export class UserService {
 
-    currentUser: User = UserService.dummyUserList[0];
+    currentUser: User | null = null;
+    logout(): void {
+        this.currentUser = null; 
+    }
 
     static dummyUserList: Array<User> = [
         {
             id: 1,
             email: "aleksandar.radivojevic.201@singimail.rs",
             password: "12345678",
-            date: new Date("2023-05-04 16:56")
+            date: new Date("2023-01-04 16:56")
         },
         {
             id: 2,
-            email: "nemanja.milutinovic.20@singimail.rs",
-            password: "123456789",
-            date: new Date("2023-05-04 16:57")
-        },
-        {
-            id: 3,
             email: "danilo.radivojevic.20@singimail.rs",
             password: "1234567890",
-            date: new Date("2023-05-04 16:56")
+            date: new Date("2023-08-04 16:56")
         }
     ];
 
@@ -53,9 +50,8 @@ export class UserService {
         return foundUser;
     }
 
-    //da li je mejl
+    //da li je mejl ispravan
     getUser(userEmail: string): User {
-        //return UserService.dummyUserList.find(userToFind => userToFind.email == userEmail)!;
         this.currentUser = UserService.dummyUserList.find(userToFind => userToFind.email == userEmail)!;
         return this.currentUser;
     }

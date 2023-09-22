@@ -6,6 +6,8 @@ import { LoginComponent } from "./auth/login/login.component";
 import { SignupComponent } from "./auth/signup/signup.component";
 import { ProfileComponent } from "./auth/profile/profile.component";
 import { ShoppingCartComponent } from "./book-list/shopping-cart/shopping-cart.component";
+import { AuthGuard } from "./auth.guard";
+
 
 
 const rute : Routes =
@@ -14,11 +16,8 @@ const rute : Routes =
     {path:'signup', component: SignupComponent },
     {path:'login', component: LoginComponent },
     {path:'book-list', component: BookListComponent },
-    {path:'profile', component: ProfileComponent},
+    {path: 'profile', component: ProfileComponent, canActivate:[AuthGuard]},
     {path:'cart',component:ShoppingCartComponent}
-
-
-
     
 ]
 

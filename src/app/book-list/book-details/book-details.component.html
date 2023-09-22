@@ -1,6 +1,7 @@
 <mat-card class="mb-4 py-5">
     <div class="flex justify-between p-6">
         <div>
+            <!-- Sortiranje po ceni -->
             <button mat-button [matMenuTriggerFor]="sortByMenu">
                 Sortiraj po {{sort}}
                 <mat-icon>expand_more</mat-icon>
@@ -12,20 +13,22 @@
         </div>
         <div class="flex items-center">
             <div>
+                <!-- Prikaz zeljenog broja knjiga (6,12,24) -->
                 <button mat-button [matMenuTriggerFor]="menu">
                     Prikazi broj knjiga {{itemsShowCount}}
                     <mat-icon>expand_more</mat-icon>
                 </button>
                 <mat-menu #menu="matMenu">
+                    <button (click)="onItemsUpdated(6)" mat-menu-item>6</button>
                     <button (click)="onItemsUpdated(12)" mat-menu-item>12</button>
                     <button (click)="onItemsUpdated(24)" mat-menu-item>24</button>
-                    <button (click)="onItemsUpdated(36)" mat-menu-item>36</button>
-                    <button (click)="onItemsUpdated(48)" mat-menu-item>48</button>
                 </mat-menu>
             </div>
+             <!-- Prikaz 3 kniga u koloni -->
             <button (click)="onColumnsUpdated(3)">
                 <mat-icon>view_module</mat-icon>
             </button>
+             <!-- Prikaz 4 knjiga u koloni-->
             <button (click)="onColumnsUpdated(4)">
                 <mat-icon>view_comfy</mat-icon>
             </button>

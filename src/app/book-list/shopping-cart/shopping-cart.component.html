@@ -1,25 +1,26 @@
+<!-- Ova kartica ce biti prikazana samo ako u korpi postoje stavke(knjige) -->
 <mat-card class="max-w-7x1 mx-auto" *ngIf="cart.items.length">
     <table mat-table [dataSource] = "dataSource" class="mat-elevation-z8 w-full">
-        
+        <!-- Tabela sa njenim funkcionalnostima -->>
         <ng-container matColumnDef="picture">
             <th mat-header-cell *matHeaderCellDef>Slika</th>
             <td mat-cell *matCellDef="let element">
                 <img src="{{element.picture}}" alt="picture" class="w-[100px] my-5">
             </td>
             <td mat-footer-cell *matFooterCellDef>
+                <!-- Dugme koje nakon pritiska korisnika vraca na prodavnicu-->
                 <button mat-raised-button routerLink="/book-list">Nastavi kupovinu</button>
             </td>
         </ng-container>
-
         <ng-container matColumnDef="name">
             <th mat-header-cell *matHeaderCellDef>Naslov</th>
             <td mat-cell *matCellDef="let element">
+                <!-- Ukoliko naslov knjige prelazi odredjenu sirinu da mu stavi "..."-->
                 <span class="truncate max-w-xs block">{{element.name}}</span>
             </td>
             <td mat-footer-cell *matFooterCellDef>
             </td>
         </ng-container>
-
         <ng-container matColumnDef="price">
             <th mat-header-cell *matHeaderCellDef>Cena</th>
             <td mat-cell *matCellDef="let element">
@@ -28,11 +29,11 @@
             <td mat-footer-cell *matFooterCellDef>
             </td>
         </ng-container>
-
         <ng-container matColumnDef="quantity">
             <th mat-header-cell *matHeaderCellDef>Kvantitet</th>
             <td mat-cell *matCellDef="let element">
             <div class="flex items-center">
+                <!-- Dumgici za dodavanje ili smanjenje broja zeljenje knjige-->
                 <button mat-icon-button (click)="onRemoveQuantity(element)">
                     <mat-icon>remove</mat-icon>
                 </button>
@@ -47,6 +48,7 @@
         </ng-container>
 
         <ng-container matColumnDef="total">
+            <!-- Sabiranje celokupnog iznosa u korpi-->
             <th mat-header-cell *matHeaderCellDef>Ukupan iznos</th>
             <td mat-cell *matCellDef="let element">
                 {{ (element.quantity * element.price) | currency:'RSD'}}
@@ -60,11 +62,13 @@
 
         <ng-container matColumnDef="action">
             <th mat-header-cell *matHeaderCellDef>
+                <!-- Dugme za brisanje svake knjige u korpi-->
                 <button mat-raised-button color="warn" class="float right" (click)="onClearCart()">
                     Isprazni korpu
                 </button>
             </th>
             <td mat-cell *matCellDef="let element">
+                <!-- Dugme za brisanje samo jedne knjige iz korpe-->
                 <button mat-mini-fab color="warn" class="float right" (click)="onRemoveFromCart(element)">
                     <mat-icon>close</mat-icon>
                 </button>
@@ -76,17 +80,13 @@
             </td>
         </ng-container>
 
-
-
-
-
-
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
         <tr mat-footer-row *matFooterRowDef="displayedColumns"></tr>
     </table>
 </mat-card>
 
+<!-- Prikazuje se ukoliko je korpa prazna (dugme koje vraca korisnika nazad na prodavnicu)-->
 <mat-card class="max-w-7x1 px-5 py-5 mx-auto" *ngIf="!cart.items.length">
     <p>
         Vasa korpa je prazna.

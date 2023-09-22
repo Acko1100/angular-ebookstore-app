@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Book } from 'src/app/models/book.model';
 
 @Component({
@@ -7,18 +7,13 @@ import { Book } from 'src/app/models/book.model';
   styleUrls: ['./books.component.css']
 })
 export class BooksComponent {
-  book : Book = {
-    id: 1,
-    title:'Srpske zemlje pre Nemanjica',
-    price: 1200,
-    genre: 'Istorija',
-    description: 'https://www.laguna.rs/n4683_knjiga_srpske_zemlje_pre_nemanjica_od_7_do_10_veka_laguna.html',
-    image: "https://www.laguna.rs/_img/korice/4683/srpske_zemlje_pre_nemanjica_od_7_do_10_veka-marko_aleksic_v.jpg",
-  };
+  //Omogucava primanje informacija o knjizi koja ce biti prikazana
+  @Input() book: Book | undefined;
 
 
   @Output() addToCart = new EventEmitter();
   
+  //Dodaje knjigu u korpu sa njenim informacijama
   onAddToCart(): void {
     this.addToCart.emit(this.book);
   }
